@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AaxisTest | Registro{% endblock %}
+
+{% block body %}
+<center>
+ {% if error|length > 0 %}
+    <div class="alert alert-danger">{{ error[0] }}</div>
+{% endif %}
+   <div style="width:30%;margin-top:20px"> 
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.password) }}
+        <br>
+        <button class="btn btn-lg btn-primary" type="submit">
+            Registrarse
+        </button>
+    {{ form_end(registrationForm) }}
+  </div>  
+</center>   
+<style>
+    label{
+        width: 100%;
+        margin-bottom: 10px;
+        text-align:left;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: solid 1px #b2aeae;
+    }
+    
+</style>
+
+{% endblock %}
+

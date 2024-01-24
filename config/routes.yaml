@@ -1,0 +1,48 @@
+api_login_check: 
+    path: /api/login_check
+app_login:
+    path: /login
+    defaults:
+        _controller: App\Controller\SecurityController::login
+app_login_init:
+    path: /
+    defaults:
+        _controller: App\Controller\SecurityController::login       
+app_logout:
+    path: /logout
+    defaults:
+        _controller: App\Controller\SecurityController::logout      
+app_login_check:
+    path: /login_check
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\SecurityController::login_check            
+app_register:
+    path: /register
+    defaults:
+        _controller: App\Controller\RegistrationController::register  
+api_list_product:
+    path: /api/list/product
+    defaults:
+        _controller: App\Controller\ProductController::index
+api_find_product:
+    path: /api/find/product/{id}
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\ProductController::show 
+api_create_product:
+    path: /api/create/products
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ProductController::createProducts
+api_update_product:
+    path: /api/update/products
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ProductController::updateProducts 
+app_home:
+    path: /home
+    defaults:
+        _controller: App\Controller\HomeController::index    
+
+

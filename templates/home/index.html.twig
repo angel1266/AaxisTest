@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AaxisTest | Cliente{% endblock %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<br><br>
+<center>
+    <div style="display:flex;justify-content: center;">
+        <div style="width: 45%;text-align: justify;"><h3>Lista de productos</h3></div>
+        <div><button type="button" id="new-product" class="btn btn-secondary" data-bs-target="#modal" data-bs-toggle="modal" taction="create">Nuevo</button></div>
+    </div>
+    <br>
+    <table class="table" style="width:50%">
+      <thead class="table-light">
+        <th>SKU</th>
+        <th>Nombre</th>
+        <th>Descripci&oacute;n</th>
+        <th>Acci&oacute;n</th>
+      </thead>
+      <tbody id="contentTable">
+      </tbody>
+    </table>
+</center>
+<div class="modal" tabindex="-1" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><span id="title-modal"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <center><div id="loaderModal"></div></center>
+      <div id="box-content">
+          <input type="hidden" id="idproducto">
+          <center>
+                <div style="display:flex;justify-content:center">
+                   <div style="width:30%; margin-right:10px">
+                      <label style="width: 100%;text-align: left;">SKU <span style="color:orange;">*</span></label>
+                      <div class="input-group flex-nowrap">
+                          <input type="text" class="form-control" placeholder="SKU" id="sku" aria-label="SKU" aria-describedby="addon-wrapping">
+                      </div>
+                   </div>
+                   <div style="width:60%">
+                      <label style="width: 100%;text-align: left;">Nombre <span style="color:orange;">*</span></label>
+                      <div class="input-group flex-nowrap">
+                          <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre" aria-describedby="addon-wrapping">
+                      </div>
+                   </div>
+                </div>
+                <br>
+                <label style="width: 93%;text-align: left;">Descripci&oacute;n</label>
+                <textarea style="width:93%;margin:10px" name="textarea" id="descripcion" class="form-control" placeholder="Descripci&oacute;n"></textarea>
+            </center>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-close">Cerrar</button>
+        <button type="button" class="btn btn-primary" taction="" id="btn-guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="twk" value="{{token}}">
+<script src="{{ asset('assets/js/home.js') }}"></script>
+{% endblock %}
